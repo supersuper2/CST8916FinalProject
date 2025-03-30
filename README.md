@@ -18,3 +18,7 @@ The analysis and processing of theses measurements, while visualizing them, will
 
 The architecture above shows the relationship of the IoT devices along with Azure Cloud services. The IoT devices send their data via a connection string to IoT hub which is then sent to Azure Stream Analytics for processing. When the data is finished processing, it is then sent to Azure Blob storage where it is stored in containers.
 
+## Implementation Details
+### IoT Sensor Simulation
+
+
