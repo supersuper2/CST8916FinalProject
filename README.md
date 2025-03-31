@@ -21,4 +21,15 @@ The architecture above shows the relationship of the IoT devices along with Azur
 ## Implementation Details
 ### IoT Sensor Simulation
 
+This connection part where is uses the .env file for the environment variables. We define our environment variables (connection strings), and how we use the passed data and index (conn) to send the message.
+
+![code](./screenshots/part1code.png)
+
+This main method, is a while loop set to true, in the loop is an array of locations and each location in one iteration of the while loop, numbers are generated for our json variables. The json and an index number is sent to the sendToIotHub() function, which handles sending of the data to the endpoints. Each iteration of the inner loop pauses for 10 seconds after sending a message to IoT Hub.
+
+For the sensors, the JSON payload is separated into ice thickness, surface temperature, snow accumulation, and external temperature. We use data=json.dumps(msgData) which returns our object full of generated variables into a json string, while passing it to the sendToIotHub() method. This data is sent with new generated data to alternating locations for as long as the program is running.
+
+![code](./screenshots/part2code.png)
+
+### Azure IoT Hub Configuration
 
