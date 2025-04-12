@@ -32,4 +32,57 @@ For the sensors, the JSON payload is separated into ice thickness, surface tempe
 ![code](./screenshots/part2code.png)
 
 ### Azure IoT Hub Configuration
+IoT Overview:
+
+![code](./screenshots/Azure%20IoT%20Hub/incase.png)
+
+Creating an IoT hub Devices. This process was repeated two more times to create a total of three devices:
+
+![code](./screenshots/Azure%20IoT%20Hub/5(creating%20IoT%20devices).png)
+
+IoT connection Strings and endpoints are used within the .env file of the IoT simulation code to connect simulated devices to Azure IoT hub. The important connection used is the Primary Connection String. The messages are then routed to the IoT hub.
+
+![code](./screenshots/Azure%20IoT%20Hub/Primary%20Connection%20String%20.png)
+
+### Azure Stream Analytics Job
+Stream Analytics Overview:
+
+This with a connection string to the storage is how the Stream Analytics service was setup.
+
+![code](./screenshots/Azure%20Streaming%20Analytics/1.png)
+
+The input was created. I picked Messaging as the endpoint and JSON as our input format since the simulation IoT devices output JSON. The source of the input is the IoT hub, so Stream Analytics will retrieve and processes the data in IoT Hub.
+
+![code](./screenshots/Azure%20Streaming%20Analytics/3(creating%20input).png)
+
+The Output is created. Here it is linked to the storage container and the container was used to store logs of the data. The organization format is in array form as it is much easier to parse the information.
+
+![code](./screenshots/Azure%20Streaming%20Analytics/3(creating%20output).png)
+
+### Querying Azure Stream Analytics
+
+As a sample query:
+
+```SQL
+SELECT * INTO [jsonstorage1] FROM [IoThubs1]
+```
+This shows us rows full of data of our sensor data.
+
+![code](./screenshots/Azure%20Streaming%20Analytics/Resulted%20data.png)
+
+For the query we used to determine my data was that only 'Unsafe' ice conditions are to be logged and stored into the container.
+
+![code](./screenshots/Azure%20Streaming%20Analytics/averages%20for%20each%20data.png)
+
+### Azure Blob Storage
+
+
+
+
+
+
+
+
+
+
 
