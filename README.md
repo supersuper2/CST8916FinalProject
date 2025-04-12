@@ -57,7 +57,7 @@ The input was created. I picked Messaging as the endpoint and JSON as our input 
 
 The Output is created. Here it is linked to the storage container and the container was used to store logs of the data. The organization format is in array form as it is much easier to parse the information.
 
-![code](./screenshots/Azure%20Streaming%20Analytics/3(creating%20output).png)
+![code](./screenshots/Azure%20Streaming%20Analytics/4(creating%20output).png)
 
 ### Querying Azure Stream Analytics
 
