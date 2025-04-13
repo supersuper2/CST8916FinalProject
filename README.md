@@ -139,8 +139,8 @@ Here, the output is created and is linked to the storage container. A more descr
 ![code](./screenshots/Azure%20Streaming%20Analytics/4(creating%20output).png)
 
 Results of the Stream output/input creation:
-![code](./screenshots/StreamOutputResult.png)
-![code](./screenshots/StreamInputResult.png)
+![code](./screenshots/Azure%20Streaming%20Analytics/CreatedOutput.png)
+![code](./screenshots/Azure%20Streaming%20Analytics/CreatedInput.png)
 
 ### Accessing Stored Data
 
