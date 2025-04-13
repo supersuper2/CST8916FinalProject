@@ -159,6 +159,7 @@ After the testing of the IoT devices and the assignment, we deleted our resource
 
 ## Reflection
 
+In this assignment, we explored the development process of setting up a pipeline from an IoT device to the Azure cloud. Initially, we faced challenges using Java due to limited library support and build tool issues, leading us to switch to Python, which proved to be more efficient, lightweight, and better supported. Navigating the Azure Portal also presented difficulties due to its complexity and specific service requirements. Ultimately, with the help of step-by-step resources, we successfully ran a batch job to process sensor data and gained valuable insights into language choice, tooling, and Azure service configuration.
 
 
 
