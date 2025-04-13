@@ -76,6 +76,92 @@ For the query we used to determine my data was that only 'Unsafe' ice conditions
 
 ### Azure Blob Storage
 
+Creating A Storage Account, keeping default setting, enabling access of network and choosing locally redundant storage:
+![code](./screenshots/Azure%20Blob%20Storage%20Account/1.png)
+![code](./screenshots/Azure%20Blob%20Storage%20Account/2.png)
+![code](./screenshots/Azure%20Blob%20Storage%20Account/3.png)
+![code](./screenshots/Azure%20Blob%20Storage%20Account/4.png)
+![code](./screenshots/Azure%20Blob%20Storage%20Account/5.png)
+
+Created blob storage container with default settings:
+![code](./screenshots/Azure%20Blob%20Storage%20Account/6.png)
+
+## Usage Instructions
+
+### Running the IoT Sensor Simulation
+These are the steps to run the simulation of the three devices:
+
+1. In the project root folder, create a `.env` file with the following fields:
+    * `IOTHUB_STR1`
+    * `IOTHUB_STR2`
+    * `IOTHUB_STR3`
+    * Each field should have the IoT Hub connection string from one of three Created Devices in IoT Hub, for example:
+        ```
+        IOTHUB_STR1 = "HostName=IoThubs1.azure-devices.net;DeviceId=iotsensor1;SharedAccessKey=<string>"
+        ```
+2. `pip install -r requirements.txt` to install the requirements (2).
+3. `py sensor-simulation/sensor.py` to run the program.
+
+### Configuring Azure Services
+
+#### Creating Azure IoT Hub
+
+Picking free tier for instance details :
+![code](./screenshots/Azure%20IoT%20Hub/1.png)
+
+Picking public access networking:
+![code](./screenshots/Azure%20IoT%20Hub/2.png)
+
+Shared Access policy + RBAC:
+![code](./screenshots/Azure%20IoT%20Hub/3.png)
+
+No defender/updates:
+![code](./screenshots/Azure%20IoT%20Hub/4.png)
+
+Creating a IoT hub Device. This process is repeated two more times for three devices, one for each region:
+![code](./screenshots/Azure%20IoT%20Hub/5(creating%20IoT%20devices).png)
+
+All three IoT devices:
+![code](./screenshots/Azure%20IoT%20Hub/6(All%20devices).png)
+
+#### Creating Azure Stream Analytics
+
+Creating a New Stream Analytics Job. We picked '1/3' in streaming units for cost effectiveness:
+![code](./screenshots/Azure%20Streaming%20Analytics/1.png)
+
+Connecting Stream Analytics Job to the appropriate storage account 'cst8916project':
+![code](./screenshots/Azure%20Streaming%20Analytics/2.png)
+
+I picked 'Messaging' as the endpoint and JSON as our input format since the IoT device simulation outputs JSON:
+![code](./screenshots/Azure%20Streaming%20Analytics/3(creating%20input).png)
+
+Here, the output is created and is linked to the storage container. A more descriptive name could have been used for example 'IceWarningLogs', as later that container was used to store specific data on whether is it safe to skate:
+![code](./screenshots/Azure%20Streaming%20Analytics/4(creating%20output).png)
+
+Results of the Stream output/input creation:
+![code](./screenshots/StreamOutputResult.png)
+![code](./screenshots/StreamInputResult.png)
+
+### Accessing Stored Data
+
+After 10 seconds, the Stream Job outputted a JSON file to the container:
+![code](./screenshots/Azure%20Blob%20Storage%20Account/datastored%20.png)
+
+## Results
+
+Stream Analytics. Receiving simulated messages:
+![code](./screenshots/overview.png)
+
+A json file was downloaded from the container after it was stored, its labled as `Alldatastorage.json`, in the `jsonDatafiles` this confirming that the data has been processed into a JSON array format. Another json file was downloaded to store the average data that is labled as `AverageData.json`, in the `jsonDatafiles` this contains the average data for ice thickness.
+
+After the testing of the IoT devices and the assignment, we deleted our resources:
+![code](./screenshots/projectdeleted.png)
+
+## Reflection
+
+
+
+
 
 
 
